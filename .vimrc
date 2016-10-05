@@ -15,6 +15,15 @@ Plugin 'scrooloose/nerdtree'
 " Color theme: oceanic-next
 Plugin 'mhartington/oceanic-next'
 
+" Autocompletion
+Plugin 'Valloric/YouCompleteMe'
+
+" Python static checks
+Plugin 'vim-flake8'
+
+" LaTeX input mode
+Plugin 'joom/latex-unicoder.vim'
+
 call vundle#end()            " end vundle plugins 
 filetype plugin indent on    " required
 
