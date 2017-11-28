@@ -1,6 +1,6 @@
-
 set nocompatible    " be iMproved
 filetype off        " required by vundle
+set encoding=utf-8
 
 " Use vundle to load plugins
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -12,23 +12,43 @@ Plugin 'VundleVim/Vundle.vim'
 " NerdTree file manager
 Plugin 'scrooloose/nerdtree'
 
-" Color theme: oceanic-next
-Plugin 'mhartington/oceanic-next'
+" NerdCommenter for code comments
+Plugin 'scrooloose/nerdcommenter'
+
+" A powerful statusline
+Plugin 'vim-airline/vim-airline'
+Plugin 'vim-airline/vim-airline-themes'
+
+" Color theme
+" Plugin 'mhartington/oceanic-next'
+Plugin 'altercation/vim-colors-solarized.git'
 
 " Autocompletion
 Plugin 'Valloric/YouCompleteMe'
 
-" Python static checks
-Plugin 'vim-flake8'
+" Syntax checking
+Plugin 'vim-syntastic/syntastic'
 
-" LaTeX input mode
-Plugin 'joom/latex-unicoder.vim'
+" Git integration
+Plugin 'tpope/vim-fugitive'
 
 call vundle#end()            " end vundle plugins 
-filetype plugin indent on    " required
 
-" May space be your leader
-let mapleader = " "
+" May comma be your leader
+let mapleader = ","
+
+" color scheme
+syntax enable
+set t_Co=256
+let g:solarized_termcolors=256
+if (has("termguicolors"))
+    set termguicolors
+endif
+if has ('nvim')
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+endif
+colorscheme solarized
+set background=dark
 
 " Tab configuration
 set tabstop=4 
@@ -43,19 +63,54 @@ set showmatch    " show matching brackets
 set nu           " line numbers
 set clipboard=unnamed    " use system clipboard
 
+" Set up backspace
+" https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode
+set backspace=indent,eol,start
+
 " NerdTree key bindings
 map <leader>n :NERDTreeToggle<CR>
 
-" Oceanic Theme
-syntax enable
-set t_Co=256
-colorscheme OceanicNext
-set background=dark
+" Airline Setup
+let g:airline_powerline_fonts=1
+let g:airline_theme='solarized'
+let g:airline_solarized_bg='dark'
 
 " Remaps for splits
-nnoremap <leader>sh <C-W><C-h>
-nnoremap <leader>sj <C-W><C-j>
-nnoremap <leader>sk <C-W><C-k>
-nnoremap <leader>sl <C-W><C-l>
-nnoremap <leader>sq <C-W><C-q>
-nnoremap <leader>ss <C-W><C-W>
+nnoremap <leader>h :sp<CR>
+nnoremap <leader>v :vs<CR>
+nnoremap <leader>l :ls<CR>
+
+nnoremap <leader>wh <C-W><C-h>
+nnoremap <leader>wj <C-W><C-j>
+nnoremap <leader>wk <C-W><C-k>
+nnoremap <leader>wl <C-W><C-l>
+nnoremap <leader>wq <C-W><C-q>
+nnoremap <leader>ws <C-W><C-W>
+
+" Set up YCM
+let g:ycm_filetype_blacklist = { 'sql': 1 }
+
+" Recommended syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_open = 1
+let g:syntastic_check_on_wq = 0
+
+" Remaps for syntastic and disable YCM leader+d
+let g:ycm_key_detailed_diagnostics=''
+nnoremap <leader>dn :lnext<CR>
+nnoremap <leader>dp :lprev<CR>
+
+" NeoVim Setup
+if has ('nvim')
+    let g:python2_host_prog = '/home/hbaderts/.envs/neovim2/bin/python'
+    let g:python3_host_prog = '/home/hbaderts/.envs/neovim3/bin/python'
+    tnoremap <Esc> <C-\><C-n>
+endif
+
+" Execute filetype plugins at the very end!!
+filetype plugin indent on
