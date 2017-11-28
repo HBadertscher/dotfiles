@@ -1,4 +1,3 @@
-
 set nocompatible    " be iMproved
 filetype off        " required by vundle
 
@@ -18,17 +17,10 @@ Plugin 'mhartington/oceanic-next'
 " Autocompletion
 Plugin 'Valloric/YouCompleteMe'
 
-" Python static checks
-Plugin 'vim-flake8'
-
-" LaTeX input mode
-Plugin 'joom/latex-unicoder.vim'
-
 call vundle#end()            " end vundle plugins 
 filetype plugin indent on    " required
 
-" May space be your leader
-let mapleader = " "
+let mapleader = ","
 
 " Tab configuration
 set tabstop=4 
@@ -53,9 +45,9 @@ colorscheme OceanicNext
 set background=dark
 
 " Remaps for splits
-nnoremap <leader>sh <C-W><C-h>
-nnoremap <leader>sj <C-W><C-j>
-nnoremap <leader>sk <C-W><C-k>
-nnoremap <leader>sl <C-W><C-l>
-nnoremap <leader>sq <C-W><C-q>
-nnoremap <leader>ss <C-W><C-W>
+nnoremap <leader>wh <C-W><C-h>
+nnoremap <leader>wj <C-W><C-j>
+nnoremap <leader>wk <C-W><C-k>
+nnoremap <leader>wl <C-W><C-l>
+nnoremap <leader>wq <C-W><C-q>
+nnoremap <leader>ws <C-W><C-W>
