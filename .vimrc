@@ -34,7 +34,6 @@ Plugin 'tpope/vim-fugitive'
 
 call vundle#end()            " end vundle plugins 
 
-" May comma be your leader
 let mapleader = ","
 
 " color scheme

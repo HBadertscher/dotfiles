@@ -3,8 +3,7 @@
 
 # Custom setup
 export TERM="xterm-256color" 
-export WORKON_HOME=/home/hbaderts/.envs
-DEFAULT_USER=hbaderts
+DEFAULT_USER="hbaderts"
 
 # Path to your oh-my-zsh installation.
 export ZSH=/home/hbaderts/.oh-my-zsh
@@ -70,13 +69,41 @@ plugins=(
   git
   systemd
   vi-mode
-  virtualenvwrapper
 )
 
 source $ZSH/oh-my-zsh.sh
 
+# My custom context thingy
+POWERLEVEL9K_HSRCONTEXT="prompt_hsrcontext"
+POWERLEVEL9K_HSRCONTEXT_FOREGROUND="white"
+POWERLEVEL9K_HSRCONTEXT_BACKGROUND="black"
+
+prompt_hsrcontext() {
+    local content=""
+    if [[ "$(hostname)" == "DT-TT-119901" ]]; then 
+       if [[ "$(whoami)" != "$DEFAULT_USER" ]]; then
+           content="$(whoami)"
+       else
+           content=""
+       fi
+    elif [[ "$(hostname)" == "wx-el-119730" ]]; then
+       if [[ "$(whoami)" != "$DEFAULT_USER" ]]; then
+           content="$(whoami)@DGX-1"
+       else
+           content="DGX-1"
+       fi
+    else
+       if [[ "$(whoami)" != "$DEFAULT_USER" ]]; then
+           content="$(whoami)@$(hostname -f)"
+       else
+           content="$(hostname -f)"
+       fi
+    fi
+    $1_prompt_segment "$0" "$2" "black" "white" "$content"
+}
+
 # User configuration
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator context dir docker_machine virtualenv vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator hsrcontext dir docker_machine vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status background_jobs_joined)
 
 # Color scheme
