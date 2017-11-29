@@ -86,29 +86,12 @@ POWERLEVEL9K_VIRTUALENV_BACKGROUND="green"
 POWERLEVEL9K_VI_INSERT_MODE_STRING="I"
 POWERLEVEL9K_VI_COMMAND_MODE_STRING="N"
 
-# export MANPATH="/usr/local/man:$MANPATH"
+# Vim aliases
+alias vim="nvim"
+alias vi="nvim"
+export EDITOR='vim'
+export VISUAL=vim
 
-# You may need to manually set your language environment
-# export LANG=en_US.UTF-8
-
-# Preferred editor for local and remote sessions
-# if [[ -n $SSH_CONNECTION ]]; then
-#   export EDITOR='vim'
-# else
-#   export EDITOR='mvim'
-# fi
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
-
-# ssh
-# export SSH_KEY_PATH="~/.ssh/rsa_id"
-
-# Set personal aliases, overriding those provided by oh-my-zsh libs,
-# plugins, and themes. Aliases can be placed here, though oh-my-zsh
-# users are encouraged to define aliases within the ZSH_CUSTOM folder.
-# For a full list of active aliases, run `alias`.
-#
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
+# CUDA stuff
+export LD_LIBRARY_PATH=/usr/local/cuda-8.0/lib64:$LD_LIBRARY_PATH
+export PATH=/usr/local/cuda-8.0/bin:$PATH
