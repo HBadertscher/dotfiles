@@ -5,6 +5,10 @@
 export TERM="xterm-256color" 
 DEFAULT_USER="hbaderts"
 
+# Source patched fonts
+source /home/hbaderts/.fonts/*.sh
+POWERLEVEL9K_MODE='awesome-fontconfig'
+
 # Path to your oh-my-zsh installation.
 export ZSH=/home/hbaderts/.oh-my-zsh
 
@@ -82,15 +86,15 @@ prompt_hsrcontext() {
     local content=""
     if [[ "$(hostname)" == "DT-TT-119901" ]]; then 
        if [[ "$(whoami)" != "$DEFAULT_USER" ]]; then
-           content="$(whoami)"
+           content="\uF015$(whoami)"
        else
-           content=""
+           content="\uF015"
        fi
     elif [[ "$(hostname)" == "wx-el-119730" ]]; then
        if [[ "$(whoami)" != "$DEFAULT_USER" ]]; then
-           content="$(whoami)@DGX-1"
+           content="\uF233$(whoami)"
        else
-           content="DGX-1"
+           content="\uF233"
        fi
     else
        if [[ "$(whoami)" != "$DEFAULT_USER" ]]; then
@@ -105,6 +109,11 @@ prompt_hsrcontext() {
 # User configuration
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator hsrcontext dir docker_machine vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status background_jobs_joined)
+
+# Disable home and subfolder icons
+POWERLEVEL9K_HOME_ICON=''
+POWERLEVEL9K_HOME_SUB_ICON=''
+POWERLEVEL9K_FOLDER_ICON=''
 
 # Color scheme
 POWERLEVEL9K_VIRTUALENV_BACKGROUND="green"
