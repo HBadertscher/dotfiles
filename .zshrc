@@ -66,6 +66,7 @@ ZSH_THEME="powerlevel9k/powerlevel9k"
 plugins=(
   cp
   debian
+  docker
   git
   systemd
   vi-mode
