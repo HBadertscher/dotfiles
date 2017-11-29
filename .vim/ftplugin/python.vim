@@ -1,3 +1,5 @@
+" Don't show .pyc files in NERDTree
+let NERDTreeIgnore = ['\.pyc$']
 
-" Call Flake8 upon saving
-autocmd BufWritePost *.py call Flake8()
+" Enable indent guides for python
+let g:indent_guides_enable_on_vim_startup = 1
