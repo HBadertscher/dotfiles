@@ -86,13 +86,13 @@ prompt_hsrcontext() {
     local content=""
     if [[ "$(hostname)" == "DT-TT-119901" ]]; then 
        if [[ "$(whoami)" != "$DEFAULT_USER" ]]; then
-           content="\uF015$(whoami)"
+           content="\uF015 $(whoami)"
        else
            content="\uF015"
        fi
     elif [[ "$(hostname)" == "wx-el-119730" ]]; then
        if [[ "$(whoami)" != "$DEFAULT_USER" ]]; then
-           content="\uF233$(whoami)"
+           content="\uF233 $(whoami)"
        else
            content="\uF233"
        fi
