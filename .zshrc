@@ -9,6 +9,10 @@ DEFAULT_USER="hbaderts"
 source /home/hbaderts/.fonts/*.sh
 POWERLEVEL9K_MODE='awesome-fontconfig'
 
+# Virtualenv path
+export WORKON_HOME=~/.envs
+export PATH=$PATH:$HOME/.local/bin/
+
 # Path to your oh-my-zsh installation.
 export ZSH=/home/hbaderts/.oh-my-zsh
 
@@ -73,6 +77,7 @@ plugins=(
   git
   systemd
   vi-mode
+  virtualenvwrapper
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -118,7 +123,7 @@ function +vi-vcs-detect-changes() {
 
 
 # User configuration
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator hsrcontext dir docker_machine vcs)
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator hsrcontext dir docker_machine virtualenv vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status background_jobs_joined)
 
 # Disable home and subfolder icons
