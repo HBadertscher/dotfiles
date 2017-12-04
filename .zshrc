@@ -123,8 +123,14 @@ POWERLEVEL9K_VI_INSERT_MODE_STRING="I"
 POWERLEVEL9K_VI_COMMAND_MODE_STRING="N"
 
 # Vim aliases
-alias vim="nvim"
-alias vi="nvim"
+if [[ -x "$(command -v nvim)" ]]; then
+    alias vim="nvim"
+    alias vi="nvim"
+elif [ -x "$(command -v vim)" ]]; then
+    alias vi="vim"
+else
+    alias vim="vi"
+fi
 export EDITOR='vim'
 export VISUAL=vim
 
