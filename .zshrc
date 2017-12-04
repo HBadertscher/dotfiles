@@ -126,7 +126,7 @@ POWERLEVEL9K_VI_COMMAND_MODE_STRING="N"
 if [[ -x "$(command -v nvim)" ]]; then
     alias vim="nvim"
     alias vi="nvim"
-elif [ -x "$(command -v vim)" ]]; then
+elif [[ -x "$(command -v vim)" ]]; then
     alias vi="vim"
 else
     alias vim="vi"
