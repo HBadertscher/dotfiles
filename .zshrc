@@ -106,6 +106,17 @@ prompt_hsrcontext() {
     $1_prompt_segment "$0" "$2" "black" "white" "$content"
 }
 
+# Override git context
+function +vi-vcs-detect-changes() {
+  vcs_visual_identifier=''
+  if [[ -n "${hook_com[staged]}" ]] || [[ -n "${hook_com[unstaged]}" ]]; then
+    VCS_WORKDIR_DIRTY=true
+  else
+    VCS_WORKDIR_DIRTY=false
+  fi
+}
+
+
 # User configuration
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(root_indicator hsrcontext dir docker_machine vcs)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status background_jobs_joined)
