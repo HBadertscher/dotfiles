@@ -23,6 +23,9 @@ Plugin 'altercation/vim-colors-solarized.git'
 " Autocompletion
 Plugin 'Valloric/YouCompleteMe'
 
+" Snippet engine
+Plugin 'SirVer/ultisnips'
+
 " Syntax checking
 Plugin 'vim-syntastic/syntastic'
 
@@ -100,6 +103,11 @@ let g:syntastic_check_on_wq = 0
 let g:ycm_key_detailed_diagnostics=''
 nnoremap <leader>dn :lnext<CR>
 nnoremap <leader>dp :lprev<CR>
+
+" Set up Ultisnips
+let g:UltiSnipsExpandTrigger = "<leader><tab>"
+let g:UltiSnipsJumpForwardTrigger = "<leader><tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<leader><s-tab>"
 
 " NeoVim Setup
 if has ('nvim')
