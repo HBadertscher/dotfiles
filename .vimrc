@@ -12,9 +12,6 @@ Plugin 'VundleVim/Vundle.vim'
 " NerdTree file manager
 Plugin 'scrooloose/nerdtree'
 
-" NerdCommenter for code comments
-Plugin 'scrooloose/nerdcommenter'
-
 " A powerful statusline
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
