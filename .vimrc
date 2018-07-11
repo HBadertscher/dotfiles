@@ -26,6 +26,9 @@ Plugin 'altercation/vim-colors-solarized.git'
 " Autocompletion
 Plugin 'Valloric/YouCompleteMe'
 
+" Rust syntax highlighting
+Plugin 'rust-lang/rust.vim'
+
 " Syntax checking
 Plugin 'vim-syntastic/syntastic'
 
