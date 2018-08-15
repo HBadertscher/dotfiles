@@ -17,8 +17,8 @@ Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 
 " Color theme
-" Plugin 'mhartington/oceanic-next'
-Plugin 'altercation/vim-colors-solarized.git'
+Plugin 'mhartington/oceanic-next'
+" Plugin 'altercation/vim-colors-solarized.git'
 
 " Autocompletion
 Plugin 'Valloric/YouCompleteMe'
@@ -42,15 +42,16 @@ let mapleader = ","
 " color scheme
 syntax enable
 set t_Co=256
-let g:solarized_termcolors=256
 if (has("termguicolors"))
     set termguicolors
 endif
-if has ('nvim')
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-endif
-colorscheme solarized
-set background=dark
+
+" let g:solarized_termcolors=256
+" colorscheme solarized
+" set background=dark
+"
+colorscheme OceanicNext
+let g:airline_theme='oceanicnext'
 
 " Tab configuration
 set tabstop=4 
@@ -74,8 +75,8 @@ map <leader>n :NERDTreeToggle<CR>
 
 " Airline Setup
 let g:airline_powerline_fonts=1
-let g:airline_theme='solarized'
-let g:airline_solarized_bg='dark'
+" let g:airline_theme='solarized'
+" let g:airline_solarized_bg='dark'
 
 " Remaps for splits
 nnoremap <leader>h :sp<CR>
