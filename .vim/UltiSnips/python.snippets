@@ -6,3 +6,43 @@ snippet main
 if __name__ == '__main__':
 	$0
 endsnippet
+
+snippet new
+# -*- coding: utf-8 -*-
+""" $1
+
+`date +%d.%m.%Y` / Hannes Badertscher
+
+"""
+$0
+endsnippet
+
+snippet import_legacy
+from __future__ import division
+from __future__ import print_function
+endsnippet
+
+snippet unittest
+# -*- coding: utf-8 -*-
+""" Unittests for $1
+
+`date +%d.%m.%Y` / Hannes Badertscher
+
+"""
+import unittest
+
+# Append parent to path
+import os
+import sys
+sys.path.append(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+$2
+
+
+class Test$3(unittest.TestCase):
+	def test_$4(self):
+		$0
+
+
+if __name__ == '__main__':
+    unittest.main()
+endsnippet

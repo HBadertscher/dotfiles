@@ -1,3 +1,1 @@
-" May space be your leader
-:let maplocalleader = " "
-
+let maplocalleader = "\\"

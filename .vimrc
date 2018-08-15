@@ -26,6 +26,9 @@ Plugin 'Valloric/YouCompleteMe'
 " Rust syntax highlighting
 Plugin 'rust-lang/rust.vim'
 
+" Dockerfile highlighting
+Plugin 'ekalinin/Dockerfile.vim'
+
 " Snippet engine
 Plugin 'SirVer/ultisnips'
 
@@ -34,6 +37,9 @@ Plugin 'vim-syntastic/syntastic'
 
 " Git integration
 Plugin 'tpope/vim-fugitive'
+
+" LaTeX
+Plugin 'lervag/vimtex'
 
 call vundle#end()            " end vundle plugins 
 
@@ -65,6 +71,7 @@ set title        " window title: file
 set showmatch    " show matching brackets
 set nu           " line numbers
 set clipboard=unnamed    " use system clipboard
+set wildmenu
 
 " Set up backspace
 " https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode
@@ -81,7 +88,6 @@ let g:airline_powerline_fonts=1
 " Remaps for splits
 nnoremap <leader>h :sp<CR>
 nnoremap <leader>v :vs<CR>
-nnoremap <leader>l :ls<CR>
 
 nnoremap <leader>wh <C-W><C-h>
 nnoremap <leader>wj <C-W><C-j>
@@ -102,6 +108,11 @@ let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
+let g:syntastic_tex_checkers = ['chktex']
+
+" LaTeX setup
+let g:tex_flavor = 'latex'
+let g:vimtex_compiler_latexmk = {'continuous': 0}
 
 " Remaps for syntastic and disable YCM leader+d
 let g:ycm_key_detailed_diagnostics=''
@@ -112,13 +123,6 @@ nnoremap <leader>dp :lprev<CR>
 let g:UltiSnipsExpandTrigger = "<leader><tab>"
 let g:UltiSnipsJumpForwardTrigger = "<leader><tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<leader><s-tab>"
-
-" NeoVim Setup
-if has ('nvim')
-    let g:python2_host_prog = '/home/hbaderts/.envs/neovim2/bin/python'
-    let g:python3_host_prog = '/home/hbaderts/.envs/neovim3/bin/python'
-    tnoremap <Esc> <C-\><C-n>
-endif
 
 " Execute filetype plugins at the very end!!
 filetype plugin indent on
