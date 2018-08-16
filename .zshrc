@@ -81,6 +81,7 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(vi_mode status background_jobs_joined)
 # Disable home and subfolder icons
 POWERLEVEL9K_HOME_ICON=''
 POWERLEVEL9K_HOME_SUB_ICON=''
+POWERLEVEL9K_ETC_ICON=''
 POWERLEVEL9K_FOLDER_ICON=''
 
 # Color scheme
@@ -108,6 +109,9 @@ export VISUAL=vim
 
 # Set up dircolors with solarized
 eval `dircolors ~/.dircolors`
+
+# Make the zsh autocompletion use the LS_COLORS like in ls
+zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # Sudo
 alias su="sudo -s `which zsh`"
