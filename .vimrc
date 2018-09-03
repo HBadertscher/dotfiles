@@ -33,7 +33,7 @@ Plugin 'ekalinin/Dockerfile.vim'
 Plugin 'SirVer/ultisnips'
 
 " Syntax checking
-Plugin 'vim-syntastic/syntastic'
+Plugin 'w0rp/ale.git'
 
 " Git integration
 Plugin 'tpope/vim-fugitive'
@@ -84,6 +84,7 @@ map <leader>n :NERDTreeToggle<CR>
 let g:airline_powerline_fonts=1
 " let g:airline_theme='solarized'
 " let g:airline_solarized_bg='dark'
+let g:airline#extensions#ale#enabled=1
 
 " Remaps for splits
 nnoremap <leader>h :sp<CR>
@@ -99,25 +100,12 @@ nnoremap <leader>ws <C-W><C-W>
 " Set up YCM
 let g:ycm_filetype_blacklist = { 'sql': 1 }
 
-" Recommended syntastic settings
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_tex_checkers = ['chktex']
+" Disable YCM leader+d
+let g:ycm_key_detailed_diagnostics=''
 
 " LaTeX setup
 let g:tex_flavor = 'latex'
 let g:vimtex_compiler_latexmk = {'continuous': 0}
-
-" Remaps for syntastic and disable YCM leader+d
-let g:ycm_key_detailed_diagnostics=''
-nnoremap <leader>dn :lnext<CR>
-nnoremap <leader>dp :lprev<CR>
 
 " Set up Ultisnips
 let g:UltiSnipsExpandTrigger = "<leader><tab>"
