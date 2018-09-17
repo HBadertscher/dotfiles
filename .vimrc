@@ -103,6 +103,10 @@ let g:ycm_filetype_blacklist = { 'sql': 1 }
 " Disable YCM leader+d
 let g:ycm_key_detailed_diagnostics=''
 
+" Shortcuts for ale
+nmap <silent> <leader>aj <Plug>(ale_next_wrap)
+nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
+
 " LaTeX setup
 let g:tex_flavor = 'latex'
 let g:vimtex_compiler_latexmk = {'continuous': 0}
