@@ -114,7 +114,7 @@ eval `dircolors ~/.dircolors`
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
 # Sudo
-alias su="sudo -s `which zsh`"
+alias su="sudo -s ZSH_DISABLE_COMPFIX=true `which zsh`"
 
 # Matlab alias
 alias gmatlab="matlab -nodesktop -nosplash"
