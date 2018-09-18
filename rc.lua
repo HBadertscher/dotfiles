@@ -29,6 +29,13 @@ require("awful.hotkeys_popup.keys")
 local debian = require("debian.menu")
 local has_fdo, freedesktop = pcall(require, "freedesktop")
 
+-- Custom command dictionary
+local commands = {}
+commands.lock = "gnome-screensaver-command --lock"
+commands.mute = "amixer set Master 1+ toggle"
+commands.raisevol = "amixer set Master 5%+"
+commands.lowervol = "amixer set Master 5%-"
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -140,9 +147,6 @@ mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
 menubar.utils.terminal = terminal -- Set the terminal for applications that require it
 -- }}}
 
--- Keyboard map indicator and switcher
-mykeyboardlayout = awful.widget.keyboardlayout()
-
 -- {{{ Wibar
 -- Create a textclock widget
 mytextclock = wibox.widget.textclock()
@@ -210,7 +214,7 @@ awful.screen.connect_for_each_screen(function(s)
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "1", "2", "3", "4" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -361,9 +365,11 @@ globalkeys = gears.table.join(
               {description = "show the menubar", group = "launcher"}),
     -- Custom: Lock screen (Mod1=Alt)
     awful.key({ "Control", "Mod1" }, "l",
-              function() awful.util.spawn("gnome-screensaver-command --lock") end,
-              {description = "Locks the screen"})
-
+              function() awful.util.spawn(commands.lock) end,
+              {description = "Locks the screen"}),
+    awful.key({}, "XF86AudioMute", function() awful.util.spawn(commands.mute) end),
+    awful.key({}, "XF86AudioRaiseVolume", function() awful.util.spawn(commands.raisevol) end),
+    awful.key({}, "XF86AudioLowerVolume", function() awful.util.spawn(commands.lowervol) end)
 )
 
 clientkeys = gears.table.join(
@@ -413,7 +419,7 @@ clientkeys = gears.table.join(
 -- Bind all key numbers to tags.
 -- Be careful: we use keycodes to make it work on any keyboard layout.
 -- This should map on the top row of your keyboard, usually 1 to 9.
-for i = 1, 9 do
+for i = 1, 4 do
     globalkeys = gears.table.join(globalkeys,
         -- View tag only.
         awful.key({ modkey }, "#" .. i + 9,
@@ -516,9 +522,12 @@ awful.rules.rules = {
       }, properties = { titlebars_enabled = true }
     },
 
-    -- Set Firefox to always map on the tag named "2" on screen 1.
-    -- { rule = { class = "Firefox" },
-    --   properties = { screen = 1, tag = "2" } },
+    -- Set Firefox to always map on the tag named "1" on screen 1.
+    { rule = { class = "Firefox" },
+      properties = { screen = 1, tag = "1" } },
+    { rule = { class = "MATLAB" },
+      properties = { screen = 3, tag = "1" } },
+
 }
 -- }}}
 
@@ -570,8 +579,8 @@ client.connect_signal("request::titlebars", function(c)
         { -- Right
             awful.titlebar.widget.floatingbutton (c),
             awful.titlebar.widget.maximizedbutton(c),
-            awful.titlebar.widget.stickybutton   (c),
-            awful.titlebar.widget.ontopbutton    (c),
+            -- awful.titlebar.widget.stickybutton   (c),
+            -- awful.titlebar.widget.ontopbutton    (c),
             awful.titlebar.widget.closebutton    (c),
             layout = wibox.layout.fixed.horizontal()
         },
