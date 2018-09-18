@@ -93,9 +93,9 @@ theme.taglist_squares_unsel = theme_assets.taglist_squares_unsel(
 -- Variables set for theming the menu:
 -- menu_[bg|fg]_[normal|focus]
 -- menu_[border_color|border_width]
-theme.menu_submenu_icon = themes_path.."default/submenu.png"
-theme.menu_height = dpi(15)
-theme.menu_width  = dpi(100)
+theme.menu_submenu_icon = themes_path.."/submenu.png"
+theme.menu_height = dpi(20)
+theme.menu_width  = dpi(150)
 
 -- You can add as many variables as
 -- you wish and access them by using
@@ -156,7 +156,7 @@ theme.awesome_icon = theme_assets.awesome_icon(
 
 -- Define the icon theme for application icons. If not set then the icons
 -- from /usr/share/icons and /usr/share/icons/hicolor will be used.
-theme.icon_theme = nil
+theme.icon_theme = "Adawaita"
 
 return theme
 
