@@ -102,6 +102,8 @@ let g:ycm_filetype_blacklist = { 'sql': 1 }
 
 " Disable YCM leader+d
 let g:ycm_key_detailed_diagnostics=''
+let g:ycm_goto_buffer_command = 'split'
+nnoremap <leader>g :YcmCompleter GoTo<CR>
 
 " Shortcuts for ale
 nmap <silent> <leader>aj <Plug>(ale_next_wrap)
