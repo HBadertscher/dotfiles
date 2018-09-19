@@ -15,6 +15,7 @@ local themes_path = beautiful.theme_path
 local theme = {}
 
 theme.font          = "Fira Sans 10"
+theme.taglist_font  = "FuraSans Nerd Font 10"
 
 -- Colors from solarized
 theme.colors = {}
