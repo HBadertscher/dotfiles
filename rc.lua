@@ -215,7 +215,7 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Each screen has its own tag table.
     if s.index == 1 then
-        awful.tag({ "\u{f269}", " 2 ", " 3 ", " 4 " }, s, awful.layout.layouts[1])
+        awful.tag({ "\u{f269}", "\u{f07c}", " 3 ", " 4 " }, s, awful.layout.layouts[1])
     else
         awful.tag({ " 1 ", " 2 ", " 3 ", " 4 " }, s, awful.layout.layouts[1])
     end
@@ -528,10 +528,13 @@ awful.rules.rules = {
 
     -- Set Firefox to always map on the tag named "1" on screen 1.
     { rule = { class = "Firefox" },
-      properties = { screen = 1, tag = "\u{f269}" } },
+      properties = { screen = 1, tag = "\u{f269}", switchtotag = true } },
+    { rule = { class = "Nautilus" },
+      properties = { screen = 1, tag = "\u{f07c}", switchtotag = true } },
     { rule = { class = "MATLAB" },
-      properties = { screen = 3, tag = " 1 " } },
-
+      properties = { screen = 3, tag = " 2 " , switchtotag = true } },
+    { rule = { class = "MATLAB", name = "Figure" },
+      properties = { screen = 2, tag = " 2 ", switchtotag = true } },
 }
 -- }}}
 
@@ -603,7 +606,6 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
-
 
 -- Start xscreensaver in background
 awful.util.spawn_with_shell("gnome-screensaver")
