@@ -19,6 +19,7 @@ Plugin 'vim-airline/vim-airline-themes'
 " Color theme
 Plugin 'mhartington/oceanic-next'
 " Plugin 'altercation/vim-colors-solarized.git'
+" Plugin 'lifepillar/vim-solarized8'
 
 " Autocompletion
 Plugin 'Valloric/YouCompleteMe'
@@ -58,6 +59,9 @@ endif
 "
 colorscheme OceanicNext
 let g:airline_theme='oceanicnext'
+
+" set background=dark
+" colorscheme solarized8
 
 " Tab configuration
 set tabstop=4 
