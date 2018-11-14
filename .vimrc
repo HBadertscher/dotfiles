@@ -112,6 +112,12 @@ let g:ycm_key_detailed_diagnostics=''
 let g:ycm_goto_buffer_command = 'split'
 nnoremap <leader>g :YcmCompleter GoTo<CR>
 
+" Set up YCM to use vimtex
+if !exists('g:ycm_semantic_triggers')
+    let g:ycm_semantic_triggers = {}
+endif
+let g:ycm_semantic_triggers.tex = g:vimtex#re#youcompleteme
+
 " Shortcuts for ale
 nmap <silent> <leader>aj <Plug>(ale_next_wrap)
 nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
@@ -119,6 +125,11 @@ nmap <silent> <leader>ak <Plug>(ale_previous_wrap)
 " LaTeX setup
 let g:tex_flavor = 'latex'
 let g:vimtex_compiler_latexmk = {'continuous': 0}
+let g:vimtex_mappings_disable = {
+    \ 'n': ['tsc', 'tse', 'tsd', 'tsD'],
+    \ 'x': ['tsd', 'tsD'],
+    \}
+
 
 " Set up Ultisnips
 let g:UltiSnipsExpandTrigger = "<leader><tab>"
