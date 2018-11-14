@@ -113,6 +113,9 @@ eval `dircolors ~/.dircolors`
 # Make the zsh autocompletion use the LS_COLORS like in ls
 zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
 
+# ls shortcut for longer stuff
+alias lll="ll --color | less -R"
+
 # Sudo
 alias su="sudo -s ZSH_DISABLE_COMPFIX=true `which zsh`"
 
