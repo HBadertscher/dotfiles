@@ -80,6 +80,10 @@ set nu           " line numbers
 set clipboard=unnamed    " use system clipboard
 set wildmenu
 
+" Enable mouse usage
+" set mouse=a
+" set ttymouse=xterm2
+
 " Set up backspace
 " https://vi.stackexchange.com/questions/2162/why-doesnt-the-backspace-key-work-in-insert-mode
 set backspace=indent,eol,start
@@ -129,7 +133,6 @@ let g:vimtex_mappings_disable = {
     \ 'n': ['tsc', 'tse', 'tsd', 'tsD'],
     \ 'x': ['tsd', 'tsD'],
     \}
-
 
 " Set up Ultisnips
 let g:UltiSnipsExpandTrigger = "<leader><tab>"

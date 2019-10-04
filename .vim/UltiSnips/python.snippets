@@ -3,8 +3,12 @@ __import__('ipdb').set_trace()
 endsnippet
 
 snippet main
-if __name__ == '__main__':
+def main():
 	$0
+
+
+if __name__ == '__main__':
+	main()
 endsnippet
 
 snippet new
@@ -45,4 +49,11 @@ class Test$3(unittest.TestCase):
 
 if __name__ == '__main__':
     unittest.main()
+endsnippet
+
+snippet argparse
+from argparse import ArgumentParser
+parser = ArgumentParser(description="$1")
+parser.add_argument($0)
+args = parser.parse_args()
 endsnippet
