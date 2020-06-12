@@ -45,8 +45,8 @@ Plugin 'tpope/vim-fugitive'
 " LaTeX
 Plugin 'lervag/vimtex'
 
-" REPL-plugin
-Plugin 'jpalardy/vim-slime'
+" Tag viewer
+Plugin 'majutsushi/tagbar'
 
 call vundle#end()            " end vundle plugins 
 
@@ -146,9 +146,8 @@ let g:UltiSnipsExpandTrigger = "<leader><tab>"
 let g:UltiSnipsJumpForwardTrigger = "<leader><tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<leader><s-tab>"
 
-" Set up vim-slime plugin for vim8-terminal
-let g:slime_target = "vimterminal"
-let g:slime_python_ipython = 1    " use ipython for %cpaste magic sauce
+" Set the correct ctags path
+let g:tagbar_ctags_bin = '/snap/bin/ctags'
 
 " Blatant copy from https://github.com/lifepillar/vim-solarized8/blob/master/colors/solarized8.vim
 let g:terminal_ansi_colors = ['#073642', '#dc322f', '#859900', '#b58900', '#268bd2', '#d33682', '#2aa198', '#eee8d5', '#002b36', '#cb4b16', '#586e75', '#657b83', '#839496', '#6c71c4', '#93a1a1', '#fdf6e3']
