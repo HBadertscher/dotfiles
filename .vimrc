@@ -27,6 +27,9 @@ Plugin 'Valloric/YouCompleteMe'
 " Rust syntax highlighting
 Plugin 'rust-lang/rust.vim'
 
+" Python folding
+Plugin 'tmhedberg/SimpylFold'
+
 " Dockerfile highlighting
 Plugin 'ekalinin/Dockerfile.vim'
 
@@ -90,6 +93,10 @@ set backspace=indent,eol,start
 
 " NerdTree key bindings
 map <leader>n :NERDTreeToggle<CR>
+
+" Code folding setup
+set foldlevel=0
+let g:SimpylFold_docstring_preview=1
 
 " Airline Setup
 let g:airline_powerline_fonts=1
