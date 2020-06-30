@@ -11,6 +11,9 @@ export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
 export WORKON_HOME=~/.envs
 source /usr/local/bin/virtualenvwrapper.sh
 
+# Poetry path
+export PATH="$HOME/.poetry/bin:$PATH"
+
 # Path to your oh-my-zsh installation.
 export ZSH=/home/hbaderts/.oh-my-zsh
 
@@ -28,6 +31,7 @@ plugins=(
   colored-man-pages
   docker
   git
+  poetry
   vi-mode
   virtualenvwrapper
   wd
