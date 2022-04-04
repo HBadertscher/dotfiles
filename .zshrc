@@ -10,6 +10,9 @@ DEFAULT_USER="hbaderts"
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
 
+# Poetry path
+export PATH="$HOME/.poetry/bin:$PATH"
+
 # Path to your oh-my-zsh installation.
 export ZSH="/home/hbaderts/.oh-my-zsh"
 
@@ -78,10 +81,13 @@ ZSH_THEME="powerlevel10k/powerlevel10k"
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(
+    cargo
     colored-man-pages
     docker
     git
+    poetry
     vi-mode
+    virtualenvwrapper
     wd
 )
 
