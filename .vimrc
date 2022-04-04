@@ -10,7 +10,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 " NerdTree file manager
-Plugin 'scrooloose/nerdtree'
+" Plugin 'scrooloose/nerdtree'
 
 " A powerful statusline
 Plugin 'vim-airline/vim-airline'
@@ -40,13 +40,16 @@ Plugin 'SirVer/ultisnips'
 Plugin 'w0rp/ale.git'
 
 " Git integration
-Plugin 'tpope/vim-fugitive'
+" Plugin 'tpope/vim-fugitive'
 
 " LaTeX
 Plugin 'lervag/vimtex'
 
 " Tag viewer
 Plugin 'majutsushi/tagbar'
+
+" Python folding
+Plugin 'python-mode/python-mode'
 
 call vundle#end()            " end vundle plugins 
 
@@ -92,7 +95,7 @@ set wildmenu
 set backspace=indent,eol,start
 
 " NerdTree key bindings
-map <leader>n :NERDTreeToggle<CR>
+" map <leader>n :NERDTreeToggle<CR>
 
 " Code folding setup
 set foldlevel=0
@@ -146,8 +149,10 @@ let g:UltiSnipsExpandTrigger = "<leader><tab>"
 let g:UltiSnipsJumpForwardTrigger = "<leader><tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<leader><s-tab>"
 
-" Set the correct ctags path
+" Set the correct ctags path and tagbar shortcut
 let g:tagbar_ctags_bin = '/snap/bin/ctags'
+let g:tagbar_use_cache = 0
+nmap <leader>t :TagbarToggle<CR>
 
 " Blatant copy from https://github.com/lifepillar/vim-solarized8/blob/master/colors/solarized8.vim
 let g:terminal_ansi_colors = ['#073642', '#dc322f', '#859900', '#b58900', '#268bd2', '#d33682', '#2aa198', '#eee8d5', '#002b36', '#cb4b16', '#586e75', '#657b83', '#839496', '#6c71c4', '#93a1a1', '#fdf6e3']
