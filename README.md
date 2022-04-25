@@ -9,3 +9,4 @@ Setup
     ln -s ~/workspace/dotfiles/.vimrc ~
     ln -s ~/workspace/dotfiles/.bashrc ~
     ln -s ~/workspace/dotfiles/.bash_profile ~
+    ln -s ~/workspace/dotfiles/hbaderts.zsh-theme ~/.oh-my-zsh/themes
