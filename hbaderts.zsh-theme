@@ -1,8 +1,20 @@
-# From alanpeabody.zsh-theme
-local user='%{$fg[blue]%}%n %{$reset_color%}'
+# From alanpeabody.zsh-theme and agnoster.zsh-theme
+if [[ "$USERNAME" != "$DEFAULT_USER" || -n "$SSH_CLIENT" ]];
+then
+    local user='%n'
+else
+    local user=''
+fi
+
+if [[ -n "$SSH_CLIENT" ]];
+then
+    local host='@%m'
+else
+    local host=''
+fi
 
 setopt prompt_subst
-PROMPT="${user}"
+PROMPT="%{$fg[blue]%}${user}${host}%{$reset_color%} "
 PROMPT+="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 PROMPT+=' %{$fg[cyan]%}$(shrink_path -f)%{$reset_color%} $(git_prompt_info)'
 
