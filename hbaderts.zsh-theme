@@ -1,5 +1,9 @@
+# From alanpeabody.zsh-theme
+local user='%{$fg[blue]%}%n %{$reset_color%}'
+
 setopt prompt_subst
-PROMPT="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
+PROMPT="${user}"
+PROMPT+="%(?:%{$fg_bold[green]%}➜ :%{$fg_bold[red]%}➜ )"
 PROMPT+=' %{$fg[cyan]%}$(shrink_path -f)%{$reset_color%} $(git_prompt_info)'
 
 ZSH_THEME_GIT_PROMPT_PREFIX="%{$fg_bold[blue]%}git:(%{$fg[red]%}"
