@@ -1,2 +1,4 @@
+.vim/autoload
 .vim/bundle
+.vim/plugged
 .vim/spell
